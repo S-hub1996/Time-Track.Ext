@@ -1,4 +1,4 @@
-import Timer from "./Timer/Timer";
+import TimerComponent from "./Timer/TimerComponent";
 import {
   Routes,
   Route,
@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path={'/'} element={<Timer/>}/>
+        <Route path={'/'} element={<TimerComponent/>}/>
         <Route path={'/reports'} element={<Reports/>}/>
 
 
