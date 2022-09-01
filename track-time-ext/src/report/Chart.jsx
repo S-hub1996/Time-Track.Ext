@@ -1,3 +1,4 @@
+import { Box, Heading } from "@chakra-ui/react";
 import React from "react";
 
 import {
@@ -25,8 +26,8 @@ const Chart = () => {
  
   return (
     <div style={{ textAlign: "center" }}>
-      <h1>Daily Report</h1>
-      <div className="App">
+      <Heading>Daily Report</Heading>
+      <Box m={20}>
 
       
       <LineChart width={400} height={400} data={data}>
@@ -39,7 +40,7 @@ const Chart = () => {
         <Line type="monotone" dataKey="users" stroke="red" />
       </LineChart>
 
-      </div>
+      </Box>
     </div>
   );
 };
