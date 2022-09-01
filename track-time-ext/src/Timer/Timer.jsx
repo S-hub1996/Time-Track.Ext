@@ -8,13 +8,13 @@ const Timer = () => {
     <Center>
         <Stack gap={8}>
 
-        <Box m={10} w={40}  border={'5px double '} borderColor={'gray.300'} rounded={8}>
+        <Box m={10}  border={'5px double '} borderColor={'gray.300'} rounded={8}>
             <Text p={4} textAlign={'center'} fontSize={20} bg={'blackAlpha.600'} color={'white'}>
 
-            11:11:11
+            11 Hour : 11 Min : 11 Sec
             </Text>
         </Box>
-        <Flex gap={2}>
+        <Flex gap={2} justifyContent={'center'}>
             <Button bg={'green.400'} color={'white'}>Start</Button>
             <Button bg={'orange.400'} color={'white'}>Break</Button>
             <Button bg={'red.400'} color={'white'}>Leave</Button>
