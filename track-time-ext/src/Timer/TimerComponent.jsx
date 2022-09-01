@@ -35,7 +35,7 @@ const TimerComponent = () => {
     setTime(0);
 
 
-    
+
   };
 
   let today = new Date();
@@ -69,8 +69,9 @@ let TotalTime= `${("0" + Math.floor((time / 3600000) % 60)).slice(-2)}${" "}:${"
   // console.log(currtime, dayName, today);
 
   return (
-    <Center>
+    <Center m={8}>
       <Stack gap={8}>
+          <Text fontWeight={'semibold'} fontSize={'2xl'}>{today+" "+dayName+" "+currtime}</Text>
         <Box m={10} border={"5px double "} borderColor={"gray.300"} rounded={8}>
           <Text
             p={4}
