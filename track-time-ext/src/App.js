@@ -4,18 +4,21 @@ import {
   Route,
 } from "react-router-dom";
 import Reports from "./Reports";
+import { Box } from "@chakra-ui/react";
 
 function App() {
   return (
-    <div>
+    <Box h={'100vh'} 
+    
+    >
       
-      <Routes>
+      <Routes >
         <Route path={'/'} element={<TimerComponent/>}/>
         <Route path={'/reports'} element={<Reports/>}/>
 
 
       </Routes>
-    </div>
+    </Box>
   );
 }
 
