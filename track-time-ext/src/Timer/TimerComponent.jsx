@@ -39,6 +39,7 @@ const TimerComponent = () => {
     setIsActive(true);
     setIsPaused(false);
     setstartTime(currtime);
+    setendTime("")
   };
 
   const handlePauseResume = () => {
