@@ -124,7 +124,7 @@ dataArr.push(...dataArr,data)
         w={"30rem"}
         p={16}
       >
-        <Text color={'whitesmoke'} textAlign={"center"} fontWeight={"semibold"} fontSize={"2xl"}>
+        <Text color={'whitesmoke'} textAlign={"center"} fontWeight={"semibold"} fontSize={"xl"}>
           {today + " " + dayName + " " + currtime}
         </Text>
         <Box m={10} border={"5px double "} borderColor={"gray.300"} rounded={8}>

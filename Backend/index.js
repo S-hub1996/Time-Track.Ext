@@ -14,7 +14,9 @@ app.get('/', (req, res) => {
     res.send("Bello")
 })
 
-app.listen(8080, async() => {
+const PORT = process.env.PORT || 8080
+
+app.listen(PORT, async() => {
     try{
         await connection
         console.log("Connected to db")
