@@ -1,5 +1,5 @@
 import { Box, Button, Center, Flex, Stack, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 const TimerComponent = () => {
   const [isActive, setIsActive] = useState(false);
@@ -9,8 +9,17 @@ const TimerComponent = () => {
   const [endtime, setendTime] = useState("");
   const [totaltime, settotalTime] = useState(0);
   const [weekDay, setweekDay] = useState("");
-  const [date, setdate] = useState("");
-
+  const [date, setDate] = useState(new Date());
+  
+  function refreshClock() {
+    setDate(new Date());
+  }
+  useEffect(() => {
+    const timerId = setInterval(refreshClock, 1000);
+    return function cleanup() {
+      clearInterval(timerId);
+    };
+  }, []);
   React.useEffect(() => {
     let interval = null;
 
@@ -30,6 +39,7 @@ const TimerComponent = () => {
     setIsActive(true);
     setIsPaused(false);
     setstartTime(currtime);
+    setendTime("")
   };
 
   const handlePauseResume = () => {
@@ -63,7 +73,8 @@ const TimerComponent = () => {
   ];
   today = mm + "/" + dd + "/" + yyyy;
   let dayName = days[day];
-  let currtime = Hours + ":" + Minutes + ":" + Seconds;
+  
+  let currtime = date.toLocaleTimeString();
 
   let TotalTime = `${("0" + Math.floor((time / 3600000) % 60)).slice(
     -2
@@ -92,16 +103,25 @@ const dataArr=[]
 dataArr.push(...dataArr,data)
   localStorage.setItem("data", JSON.stringify(dataArr))
   return (
-    <Center m={8}>
+    <Center py={'10rem'}>
+      <Stack>
+
+      <Box  bgImage={'https://www.icegif.com/wp-content/uploads/2022/05/icegif-511.gif'}
+    bgRepeat={'no-repeat'}
+    bgSize={'cover'}  rounded={8}  p={20}>
+     
+      </Box>
       <Stack
+      
+      bgColor={'black'}
         gap={8}
-        border={"10px inset"}
+        // border={"10px inset"}
         rounded={8}
-        borderColor={"red.400"}
+        // borderColor={"red.400"}
         w={"30rem"}
         p={16}
       >
-        <Text textAlign={"center"} fontWeight={"semibold"} fontSize={"2xl"}>
+        <Text color={'whitesmoke'} textAlign={"center"} fontWeight={"semibold"} fontSize={"2xl"}>
           {today + " " + dayName + " " + currtime}
         </Text>
         <Box m={10} border={"5px double "} borderColor={"gray.300"} rounded={8}>
@@ -131,6 +151,7 @@ dataArr.push(...dataArr,data)
             Reports
           </Button>
         </Link>
+      </Stack>
       </Stack>
     </Center>
   );
