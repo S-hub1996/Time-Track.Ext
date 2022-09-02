@@ -1,5 +1,5 @@
 import { Box, Button, Center, Flex, Stack, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 const TimerComponent = () => {
   const [isActive, setIsActive] = useState(false);
@@ -9,8 +9,17 @@ const TimerComponent = () => {
   const [endtime, setendTime] = useState("");
   const [totaltime, settotalTime] = useState(0);
   const [weekDay, setweekDay] = useState("");
-  const [date, setdate] = useState("");
-
+  const [date, setDate] = useState(new Date());
+  
+  function refreshClock() {
+    setDate(new Date());
+  }
+  useEffect(() => {
+    const timerId = setInterval(refreshClock, 1000);
+    return function cleanup() {
+      clearInterval(timerId);
+    };
+  }, []);
   React.useEffect(() => {
     let interval = null;
 
@@ -63,7 +72,8 @@ const TimerComponent = () => {
   ];
   today = mm + "/" + dd + "/" + yyyy;
   let dayName = days[day];
-  let currtime = Hours + ":" + Minutes + ":" + Seconds;
+  
+  let currtime = date.toLocaleTimeString();
 
   let TotalTime = `${("0" + Math.floor((time / 3600000) % 60)).slice(
     -2
