@@ -5,14 +5,19 @@ const TimerComponent = () => {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
+  const [starttime, setstartTime] = useState("");
+  const [endtime, setendTime] = useState("");
+  const [totaltime, settotalTime] = useState(0);
+  const [weekDay, setweekDay] = useState("");
+  const [date, setdate] = useState("");
 
   React.useEffect(() => {
     let interval = null;
 
     if (isActive && isPaused === false) {
       interval = setInterval(() => {
-        setTime((time) => time + 10);
-      }, 10);
+        setTime((time) => time + 1000);
+      }, 1000);
     } else {
       clearInterval(interval);
     }
@@ -24,6 +29,7 @@ const TimerComponent = () => {
   const handleStart = () => {
     setIsActive(true);
     setIsPaused(false);
+    setstartTime(currtime);
   };
 
   const handlePauseResume = () => {
@@ -33,9 +39,8 @@ const TimerComponent = () => {
   const handleReset = () => {
     setIsActive(false);
     setTime(0);
-
-
-
+    setendTime(currtime);
+    settotalTime(time);
   };
 
   let today = new Date();
@@ -60,18 +65,45 @@ const TimerComponent = () => {
   let dayName = days[day];
   let currtime = Hours + ":" + Minutes + ":" + Seconds;
 
-
-let TotalTime= `${("0" + Math.floor((time / 3600000) % 60)).slice(-2)}${" "}:${" "}
+  let TotalTime = `${("0" + Math.floor((time / 3600000) % 60)).slice(
+    -2
+  )}${" "}:${" "}
             ${("0" + Math.floor((time / 60000) % 60)).slice(-2)}${" "}:${" "}
             ${("0" + Math.floor((time / 1000) % 60)).slice(-2)}`;
 
 
-  // console.log(currtime, dayName, today);
+const dataArr=[]
 
+// const dataArr= new Array(1)
+  const data =  
+    {
+      
+      startTime: starttime,
+      Endtime: endtime,
+      totalTime: totaltime,
+      Day: dayName,
+      date: today,
+    }
+  
+  
+  // console.log(currtime, dayName, today,time,TotalTime);
+  // console.log(starttime, endtime, totaltime);
+  console.log(dataArr)
+dataArr.push(...dataArr,data)
+  localStorage.setItem("data", JSON.stringify(dataArr))
   return (
     <Center m={8}>
-      <Stack gap={8}>
-          <Text fontWeight={'semibold'} fontSize={'2xl'}>{today+" "+dayName+" "+currtime}</Text>
+      <Stack
+        gap={8}
+        border={"10px inset"}
+        rounded={8}
+        borderColor={"red.400"}
+        w={"30rem"}
+        p={16}
+      >
+        <Text textAlign={"center"} fontWeight={"semibold"} fontSize={"2xl"}>
+          {today + " " + dayName + " " + currtime}
+        </Text>
         <Box m={10} border={"5px double "} borderColor={"gray.300"} rounded={8}>
           <Text
             p={4}
@@ -80,7 +112,7 @@ let TotalTime= `${("0" + Math.floor((time / 3600000) % 60)).slice(-2)}${" "}:${"
             bg={"blackAlpha.600"}
             color={"white"}
           >
-           {TotalTime}
+            {TotalTime}
           </Text>
         </Box>
         <Flex gap={2} justifyContent={"center"}>
