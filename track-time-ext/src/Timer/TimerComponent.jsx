@@ -50,7 +50,7 @@ const TimerComponent = () => {
     setIsActive(false);
     setTime(0);
     setendTime(currtime);
-    settotalTime(time);
+    settotalTime(time/1000);
     if(data.Endtime && data.totalTime>0){
       axios.post("http://localhost:8080/report", data)
     }

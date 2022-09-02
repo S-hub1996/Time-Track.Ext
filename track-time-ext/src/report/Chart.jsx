@@ -38,11 +38,11 @@ const Chart = ({report}) => {
  
   return (
     <div style={{ textAlign: "center" }}>
-      <Heading>Daily Report</Heading>
+      
       <Box m={20}>
 
       
-      <LineChart width={800} height={400} data={rep}>
+      <LineChart width={700} height={400} data={rep}>
       <XAxis
             dataKey="Day"
             scale="point"
