@@ -29,12 +29,12 @@ const Chart = ({report}) => {
     });
   },[setRep])
 
-  const data = [
-    { name: "Mon", users: 4 },
-    { name: "Tues", users: 3 },
-    { name: "Wed", users: 2 },
-    { name: "Thurs", users: 4 },
-  ];
+  // const data = [
+  //   { name: "Mon", users: 4 },
+  //   { name: "Tues", users: 3 },
+  //   { name: "Wed", users: 2 },
+  //   { name: "Thurs", users: 4 },
+  // ];
  
   return (
     <div style={{ textAlign: "center" }}>
@@ -42,7 +42,7 @@ const Chart = ({report}) => {
       <Box m={20}>
 
       
-      <LineChart width={400} height={400} data={rep}>
+      <LineChart width={800} height={400} data={rep}>
       <XAxis
             dataKey="Day"
             scale="point"
