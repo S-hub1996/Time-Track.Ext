@@ -51,7 +51,9 @@ const TimerComponent = () => {
     setTime(0);
     setendTime(currtime);
     settotalTime(time);
-    axios.post("http://localhost:8080/report", data)
+    if(data.Endtime && data.totalTime>0){
+      axios.post("http://localhost:8080/report", data)
+    }
   };
 
   let today = new Date();
@@ -83,7 +85,7 @@ const TimerComponent = () => {
             ${("0" + Math.floor((time / 60000) % 60)).slice(-2)}${" "}:${" "}
             ${("0" + Math.floor((time / 1000) % 60)).slice(-2)}`;
 
-
+console.log(totaltime/1000)
 const dataArr=[]
 
 // const dataArr= new Array(1)
