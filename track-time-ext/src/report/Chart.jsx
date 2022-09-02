@@ -1,5 +1,6 @@
 import { Box, Heading } from "@chakra-ui/react";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 import {
   PieChart,
@@ -16,7 +17,18 @@ import {
 } from "recharts";
 
 
-const Chart = () => {
+const Chart = ({report}) => {
+  // console.log("chart",report);
+  const [rep,setRep] = useState(null)
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/report")
+    .then(function (response) {
+      console.log(response);
+      setRep(response.data)
+    });
+  },[setRep])
+
   const data = [
     { name: "Mon", users: 4 },
     { name: "Tues", users: 3 },
@@ -30,14 +42,14 @@ const Chart = () => {
       <Box m={20}>
 
       
-      <LineChart width={400} height={400} data={data}>
+      <LineChart width={400} height={400} data={rep}>
       <XAxis
-            dataKey="name"
+            dataKey="Day"
             scale="point"
             padding={{ left: 10, right: 10 }}
           />
           <YAxis />
-        <Line type="monotone" dataKey="users" stroke="red" />
+        <Line type="monotone" dataKey="totalTime" stroke="red" />
       </LineChart>
 
       </Box>

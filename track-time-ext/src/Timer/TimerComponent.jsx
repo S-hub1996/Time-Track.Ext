@@ -1,5 +1,6 @@
 import { Box, Button, Center, Flex, Stack, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import axios from "axios"
 import { Link } from "react-router-dom";
 const TimerComponent = () => {
   const [isActive, setIsActive] = useState(false);
@@ -10,7 +11,6 @@ const TimerComponent = () => {
   const [totaltime, settotalTime] = useState(0);
   const [weekDay, setweekDay] = useState("");
   const [date, setDate] = useState(new Date());
-  
   function refreshClock() {
     setDate(new Date());
   }
@@ -51,6 +51,7 @@ const TimerComponent = () => {
     setTime(0);
     setendTime(currtime);
     settotalTime(time);
+    axios.post("http://localhost:8080/report", data)
   };
 
   let today = new Date();
@@ -99,7 +100,7 @@ const dataArr=[]
   
   // console.log(currtime, dayName, today,time,TotalTime);
   // console.log(starttime, endtime, totaltime);
-  console.log(dataArr)
+  // console.log("dataArr",dataArr)
 dataArr.push(...dataArr,data)
   localStorage.setItem("data", JSON.stringify(dataArr))
   return (
