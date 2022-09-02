@@ -11,19 +11,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/report", ReportRouter)
 
 app.get('/', (req, res) => {
-    res.send("Bello")
+    res.send("Hello")
 })
 
 const PORT = process.env.PORT || 8080
 
-app.listen(PORT, async() => {
-    try{
-        await connection
-        console.log("Connected to db")
-    }
-    catch{
-        console.log("db error")
-    }
-    console.log('listening on port 8080')
+app.listen(PORT, () => {
+    console.log('listening on http://localhost:8080')
 })
 

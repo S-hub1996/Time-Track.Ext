@@ -52,7 +52,7 @@ const TimerComponent = () => {
     setendTime(currtime);
     settotalTime(time/1000);
     if(data.Endtime && data.totalTime>0){
-      axios.post("http://localhost:8080/report", data)
+      axios.post("https://timer-tracker-app.herokuapp.com/report", data)
     }
   };
 

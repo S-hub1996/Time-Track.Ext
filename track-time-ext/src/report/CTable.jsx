@@ -16,7 +16,7 @@ const CTable = () => {
     const [rep,setRep] = useState(null)
 
   useEffect(() => {
-    axios.get("http://localhost:8080/report")
+    axios.get("https://timer-tracker-app.herokuapp.com/report")
     .then(function (response) {
       console.log(response);
       setRep(response.data)
