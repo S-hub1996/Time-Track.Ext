@@ -33,7 +33,7 @@ const CTable = () => {
     <Thead>
       <Tr>
         <Th>Date</Th>
-        <Th>Days</Th>
+        <Th>Day</Th>
         <Th>Start-time</Th>
         <Th>End-time</Th>
         <Th>Total-time</Th>

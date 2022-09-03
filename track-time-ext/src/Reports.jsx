@@ -11,22 +11,25 @@ const Reports = () => {
         <Stack>
           <Center>
             <Heading>Daily Report</Heading>
+            
           </Center>
-        <Flex>
+        <Flex border={'1px solid '} rounded={8} my={10}borderColor={'gray.300'}>
           <Box width="40%">
             <CTable/>
           </Box>
-          <Box border='2px solid grey'></Box>
+          <Box border='1px solid' borderColor={'gray.300'}></Box>
           <Box width="59%">
             <Chart/>
           </Box>
-              {/* <Table></Table> */}
+             
         </Flex>
 
+<Center>
 
         <Link to={"/"}>
         <Button bg={'pink'}>Timer</Button>
         </Link>
+</Center>
         </Stack>
     </Center>
   )
