@@ -9,11 +9,11 @@ const Reports = () => {
   return (
     <Center >
         <Stack>
-          <Center>
+          <Center my={20}>
             <Heading>Weekly Report</Heading>
             
           </Center>
-        <Flex border={'1px solid '} rounded={8} my={10}borderColor={'gray.300'}>
+        <Flex border={'1px solid '} rounded={8} borderColor={'gray.300'}>
           <Box width="40%">
             <CTable/>
           </Box>
