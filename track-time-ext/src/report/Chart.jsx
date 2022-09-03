@@ -39,17 +39,18 @@ const Chart = ({report}) => {
   return (
     <div style={{ textAlign: "center" }}>
       
-      <Box m={20}>
+      <Box m={20} >
 
       
       <LineChart width={700} height={400} data={rep}>
       <XAxis
+            
             dataKey="Day"
             scale="point"
             padding={{ left: 10, right: 10 }}
           />
           <YAxis />
-        <Line type="monotone" dataKey="totalTime" stroke="red" />
+        <Line  type="monotone" dataKey="totalTime" stroke="red" />
       </LineChart>
 
       </Box>

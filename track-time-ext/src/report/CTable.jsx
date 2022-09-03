@@ -27,19 +27,19 @@ const CTable = () => {
   }
   return (
     <>
-    <TableContainer marginTop='100px'>
+    <TableContainer marginTop='100px' >
   <Table size='sm' variant='simple'>
     {/* <TableCaption>Imperial to metric conversion factors</TableCaption> */}
-    <Thead>
-      <Tr>
-        <Th>Date</Th>
-        <Th>Day</Th>
-        <Th>Start-time</Th>
-        <Th>End-time</Th>
-        <Th>Total-time</Th>
+    <Thead >
+      <Tr >
+        <Th color={'gold'}>Date</Th>
+        <Th color={'gold'}>Day</Th>
+        <Th color={'gold'}>Start-time</Th>
+        <Th color={'gold'}>End-time</Th>
+        <Th color={'gold'}>Total-time</Th>
       </Tr>
     </Thead>
-    <Tbody>
+    <Tbody color={'whitesmoke'} >
         {rep?.map((e,i)=> (
            <Tr key={i}>
             <Td>{e.date}</Td>
