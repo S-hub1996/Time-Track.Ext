@@ -24,4 +24,17 @@ ReportRouter.post('/', async (req, res) => {
     }
 })
 
+ReportRouter.delete('/:id', async(req, res) => {
+    const reports = await ReportModel.find()
+    reports.remove({
+      id: req.params.id
+    }), function (err, user) {
+      if (err) {
+        return res.send(err);
+      }
+
+      res.json({ message: 'Deleted' });
+    };
+});
+
 module.exports = ReportRouter;
