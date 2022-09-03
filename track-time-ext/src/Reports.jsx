@@ -10,7 +10,7 @@ const Reports = () => {
     <Center >
         <Stack>
           <Center>
-            <Heading>Daily Report</Heading>
+            <Heading>Weekly Report</Heading>
             
           </Center>
         <Flex border={'1px solid '} rounded={8} my={10}borderColor={'gray.300'}>

@@ -48,12 +48,13 @@ const TimerComponent = () => {
 
   const handleReset = () => {
     setIsActive(false);
-    setTime(0);
+    
     setendTime(currtime);
     settotalTime(time/1000);
     if(data.Endtime && data.totalTime>0){
       axios.post("https://timer-tracker-app.herokuapp.com/report", data)
     }
+    setTime(0);
   };
 
   let today = new Date();
